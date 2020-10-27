@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+html, body, main {
+  height: 100%;
+  width: 100%;
+  min-width: 360px;
+}
+
+body {
+  background-color: #DDD;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.header {
+  transition: letter-spacing .3s ease;
+}
+
+.header:hover {
+  letter-spacing: 3px;
+}
+
+.job-counter {
+  margin: 10px;
+}
+
+.export {
+  color: darkolivegreen;
+  font-weight: bold;
+}
+
+.export:hover {
+  color: darkgreen;
+}
+
+ul {
+  list-style-type: none;
+  width: 100%;
+  height: 100%;
+}
+
+.company:first-child {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.company:last-child {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-bottom: 20px;
+  border: 0;
+}
+
+.company {
+  position: relative;
+  width: 60%;
+  min-height: 5%;
+  border-bottom: 1px solid #BBB;
+  margin: 0 auto;
+  padding: 15px 15px 5px 15px;
+  background-color: white;
+  overflow: hidden;
+}
+
+.logo {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 10px;
+}
+
+.company-logo, .svg-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  object-fit: contain;
+  position: relative;
+  z-index: 10;
+  transition: all .3s ease-in;
+}
+
+/* .company-logo:hover, .svg-icon:hover {
+  transform: scale(1.2);
+  background-color: white;
+} */
+
+.mobile-flex {
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+
+.company-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: relative;
+  color: #333;
+  transition: transform .5s ease;
+  white-space: nowrap;
+}
+
+.company-name:hover {
+  transform: translateX(3px);
+}
+
+.delimiter {
+  margin: 0px 10px;
+}
+
+.offer-link {
+  font-size: 0.9rem;
+  color: #636e72;
+  white-space: nowrap;
+  transition: transform .3s ease;
+}
+
+.offer-link:hover {
+  color: #333;
+  transform: translateX(1px);
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  height: 100%;
+}
+
+.item-left {
+  flex-grow: 1;
+}
+
+.job-title {
+  position: relative;
+  left: -8px;
+  padding: 5px 10px;
+  font-size: 1.8rem;
+  flex-grow: 1;
+}
+
+.apply-link {
+  padding: 10px;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  position: relative;
+  color: #a4b0be;
+  transition: all .3s;
+}
+
+.apply-link:hover {
+  color: #34495e;
+  filter: brightness(98%);
+}
+
+.apply-link::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0px;
+  border-radius: 3px;
+  background-color: #34495e;
+  transition: all .5s ease-in-out;
+}
+
+.apply-link:hover::after {
+  animation: underline-in .5s ease forwards;
+}
+
+@keyframes underline-in {
+  0% {
+    width: 0px;
+    transform: translate(0, 1.7rem);
+  }
+  40% {
+    width: 1rem;
+    transform: translate(-1.3rem, 1.7rem);
+  }
+  60% {
+    width: 1.0rem;
+    filter: none;
+    transform: translate(-3rem, 1.7rem);
+  }
+  100% {
+    width: 1.05rem;
+    filter: brightness(50%);
+    transform: translate(-4.1rem, 1.7rem);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .company {
+    width: 90%;
+    min-height: 5%;
+    padding: 10px;
+  }
+  .company-logo {
+    width: 2rem;
+    height: 2rem;
+  }
+  .logo {
+    margin-right: 7px;
+  }
+  .company-name {
+    font-size: 1rem;
+  }
+  .job-title {
+    font-size: 1.2rem;
+  }
+  .apply-link {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+  .apply-link::after {
+    height: 2px;
+  }
+  @keyframes underline-in {
+    0% {
+      width: 0;
+      transform: translate(0px, 1.65rem);
+    }
+    40% {
+      width: 0.8rem;
+      transform: translate(-0.4rem, 1.65rem);
+    }
+    60% {
+      width: 1.05rem;
+      transform: translate(-0.8rem, 1.65rem);
+    }
+    100% {
+      width: 1.05rem;
+      transform: translate(-3.9rem, 1.65rem);
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mobile-flex {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .company-name {
+    font-size: 0.9rem
+  }
+  .delimiter {
+    display: none;
+  }
+  .offer-link {
+    font-size: 0.6rem;
+  }
+  .job-title {
+    font-size: 1.1rem;
+  }
+}

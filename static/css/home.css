@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+html, body, main {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  overflow: hidden;
+  background-color: #DDD;
+}
+
+header, main {
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  height: 40vh;
+  padding-bottom: 10vh;
+  align-items: flex-end;
+}
+
+main {
+  height: 30vh;
+  padding-top: 3vh;
+}
+
+footer {
+  height: 30vh;
+}
+
+.header {
+  font-size: 3rem;
+  letter-spacing: -1px;
+  color: #1d1d1f;
+}
+
+.search-form {
+  display: flex;
+}
+
+.search-box {
+  border: 0;
+  box-shadow: 0 0 0 4px black;
+  border-radius: 10rem 1rem 1rem 10rem;
+  width: 13rem;
+  height: 3rem;
+  outline: none;
+  background-color: #DDD;
+  font-size: 1.2rem;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 4rem;
+  border-bottom: 1px black solid;
+  transition: width .3s;
+}
+
+.search-box::placeholder {
+  color: #333;
+}
+
+.search-box:focus {
+  width: 18rem;
+}
+
+.search-box:focus~.submit-button {
+  transform: translateX(16rem);
+}
+
+.submit-button {
+  outline: none;
+  border: 0;
+  box-shadow: 0 0 0 4px black;
+  width: 3.5rem;
+  border-radius: 10rem;
+  position: absolute;
+  transform: translateX(11rem);
+  padding: 5px;
+  transition: transform .3s, position .3s;
+}
+
+.search-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.offer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+}
+
+.logo {
+  width: 100px;
+  object-fit: contain;
+  border-radius: 30px;
+}
+
+.offer-link:nth-child(1) .logo {
+  width: 140px;
+}
+
+.offer-link:nth-child(2) .logo {
+  width: 120px;
+}
+
+.offer-link:nth-child(2) {
+  margin-right: 35px;
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    font-size: 2rem;
+  }
+  .offer-link {
+    margin: 0 5px;
+  }
+  .logo {
+    width: 100px;
+  }
+  .offer-link:nth-child(1) .logo {
+    width: 100px;
+  }
+  .offer-link:nth-child(2) .logo {
+    width: 100px;
+  }
+  .offer-link:nth-child(3) .logo {
+    width: 80px;
+  }
+  .offer-link:nth-child(2) {
+    margin-right: 10px;
+  }
+}

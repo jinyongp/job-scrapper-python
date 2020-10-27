@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <title>Remote Job Scrapper</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="header">
+      <a href="/">Remote Jobs</a>
+    </h1>
+    <h3 class="job-counter">{{ jobs|length }} {{ keyword }} jobs found</h3>
+    {% if jobs|length %}
+    <a href="/export?keyword={{ keyword }}" class="export">Export to CSV</a>
+    {% else %}
+    <a href="/" class="export">Return home</a>
+    {% endif %}
+  </header>
+
+  <main>
+    <ul>
+      {% for job in jobs %}
+      <li class="company item">
+        <div class="flex-row">
+          <div class="flex-column item-left">
+            <div class="flex-row hat">
+              <div class="logo">
+                {% if job.logo_type == "img" %}
+                <img class="company-logo" src="{{ job.logo }}" alt="{{ job.name }} logo">
+                {% elif job.logo_type == "svg" %}
+                {{ job.logo | safe }}
+                {% else %}
+                {% if job.offer[0] == "Remote OK" %}
+                <img class="company-logo" src="{{ url_for('static', filename='assets/remoteok-icon.png') }}"
+                  alt="{{ job.name }} logo">
+                {% elif job.offer[0] == "Stack Overflow" %}
+                <img class="company-logo" src="{{ url_for('static', filename='assets/stackoverflow-icon.png') }}"
+                  alt="{{ job.name }} logo">
+                {% elif job.offer[0] == "We Work Remotely" %}
+                <img class="company-logo" src="{{ url_for('static', filename='assets/weworkremotely-icon.svg') }}"
+                  alt="{{ job.name }} logo">
+                {% endif%}
+                {% endif %}
+              </div>
+              <div class="company-offer mobile-flex">
+                <a class="company-name" href="{{ job.link }}" target="_blank">{{ job.name }}</a>
+                <span class="delimiter">•</span>
+                <a class="offer-link" href="{{ job.offer[1] }}" target="_blank">{{ job.offer[0] }}</a>
+              </div>
+            </div>
+            <div class="job-title">{{ job.title }}</div>
+          </div>
+          <a class="apply-link item-right" href="{{ job.apply }}" target="_blank">Apply</a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+  </main>
+</body>
+
+</html>
